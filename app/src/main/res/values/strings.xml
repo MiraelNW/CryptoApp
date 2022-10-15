@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CryptoApp</string>
+    <string name="min_price">Min price:</string>
+    <string name="price">Price:</string>
+    <string name="max_price">Max price:</string>
+    <string name="last_buy">Last buy:</string>
+    <string name="last_update">Last update:</string>
+</resources>
