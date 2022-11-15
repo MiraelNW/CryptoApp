@@ -1,11 +1,12 @@
-package com.example.cryptoapp
+package com.example.cryptoapp.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import com.example.cryptoapp.adapters.CoinInfoAdapter
-import com.example.cryptoapp.pojo.CoinPriceInfo
+import androidx.lifecycle.ViewModelProvider
+import com.example.cryptoapp.R
+import com.example.cryptoapp.domain.CoinInfo
+import com.example.cryptoapp.presentation.adapter.CoinInfoAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class CoinPriceListActivity : AppCompatActivity() {
@@ -14,19 +15,19 @@ class CoinPriceListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val adapter = CoinInfoAdapter()
+        val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun OnCoinClick(coinPriceInfo: CoinPriceInfo) {
+            override fun OnCoinClick(coinInfo: CoinInfo) {
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
-                    coinPriceInfo.fromSymbol
+                    coinInfo.fromSymbol
                 )
                 startActivity(intent)
             }
         }
         rvCoinPriceList.adapter = adapter
-        viewModel = ViewModelProviders.of(this)[CoinViewModel::class.java]
-        viewModel.priceList.observe(this, Observer {
+        viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
+        viewModel.coinInfoList.observe(this, Observer {
             adapter.coinInfoList = it
         })
 

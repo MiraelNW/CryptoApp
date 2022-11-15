@@ -5,4 +5,6 @@
     <string name="max_price">Max price:</string>
     <string name="last_buy">Last buy:</string>
     <string name="last_update">Last update:</string>
+    <string name="symbols_template">%s / %s</string>
+    <string name="last_update_template">Время последнего обновления: %s</string>
 </resources>
