@@ -9,7 +9,7 @@
 
 ## Highlights
 
-- Use [crypto api](https://min-api.cryptocompare.com/) Api
+- Use [crypto api](https://min-api.cryptocompare.com/)
 - Use Material Design 2
 - Support one language: English 
 - Use locale Database
