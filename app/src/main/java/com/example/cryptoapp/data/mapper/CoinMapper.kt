@@ -10,8 +10,9 @@ import java.sql.Date
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.inject.Inject
 
-class CoinMapper {
+class CoinMapper @Inject constructor(){
 
     companion object{
         const val BASE_IMAGE_URL = "https://cryptocompare.com/"
